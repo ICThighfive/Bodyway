@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bodyway Main</title>
+<title>footer</title>
 </head>
 <body>
-Bodyway Main page
 
 </body>
 </html>
