@@ -13,7 +13,6 @@
 </head>
 <body>
 
-</ul>
 <ul class="nav justify-content-center">
   <li class="nav-item">
     <a class="nav-link" href="#">헬스 푸드</a>
@@ -29,6 +28,18 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">커뮤니티</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">로그인하기</a>
   </li>
   <!-- <li class="nav-item">
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
