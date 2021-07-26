@@ -10,8 +10,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>menubar</title>
+<style type = "text/css">
+a.logo{
+text-decoration : none;
+}
+</style>
 </head>
 <body>
+<a class = "logo" href = "/semi/index.jsp"><h1 align = "center">BodyWay<img src = "/semi/resources/images/bodyway_logo.png" height="50" width= "50"></h1></a>
 
 <ul class="nav justify-content-center">
   <li class="nav-item1">
