@@ -76,7 +76,7 @@ public class CmAppInsertServlet extends HttpServlet {
 		Community community = new Community();
 
 		community.setCommunityId(mrequest.getParameter("cmid"));
-		community.(mrequest.getParameter("cmname"));
+		community.setCommunityName(mrequest.getParameter("cmname"));
 		community.(mrequest.getParameter("cmintro"));
 		community.(mrequest.getParameter("cpctmin"));
 		community.(mrequest.getParameter("cpctmax"));
