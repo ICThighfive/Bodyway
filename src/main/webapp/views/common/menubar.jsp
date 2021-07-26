@@ -44,6 +44,8 @@ text-decoration : none;
   <li class="nav-item">
     <a class="nav-link" href="#"></a>
   </li>
+  
+   <!-- 비로그인의 경우는 로그인하기가 보이게, 로그인이 됐을 경우는 로그인 한 사람의 정보를 가져올 예정 -->
   <li class="login">
     <a class="nav-link" href="/semi/views/member/login.jsp">로그인하기</a>
   </li>
