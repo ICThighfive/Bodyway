@@ -11,8 +11,10 @@
 <title>Bodyway Main</title>
 </head>
 <body>
+<!-- menubar.jsp -->
 <%@ include file="views/common/menubar.jsp" %>
 
+<!-- 사진 슬라이드 부분 -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -39,11 +41,15 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!-- 사진 슬라이드 부분 종료 -->
+
+<br>
 
 <center>
 <h1>BodyWay Main Page</h1>
 </center>
 
+<!-- footer.jsp -->
 <%@ include file="views/common/footer.jsp" %>
 
 </body>

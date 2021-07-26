@@ -14,32 +14,32 @@
 <body>
 
 <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link" href="#">헬스 푸드</a>
+  <li class="nav-item1">
+    <a class="nav-link" href="/semi/views/healthfood/healthfoodListView.jsp">헬스 푸드</a>
+  </li>
+  <li class="nav-item2">
+    <a class="nav-link" href="/semi/views/sportswear/sportswearListView.jsp">스포츠 웨어</a>
+  </li>
+  <li class="nav-item3">
+    <a class="nav-link" href="/semi/views/sportsitem/sportsitemListView.jsp">운동 용품</a>
+  </li>
+  <li class="nav-item4">
+    <a class="nav-link" href="/semi/views/sportsvideo/sportsvideoListView.jsp">운동 영상</a>
+  </li>
+  <li class="nav-item5">
+    <a class="nav-link" href="/semi/views/community/communityListView.jsp">커뮤니티</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">스포츠 웨어</a>
+    <a class="nav-link" href="/semi/views/notice/noticeListView.jsp">공지사항</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">운동 용품</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">운동 영상</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">커뮤니티</a>
+    <a class="nav-link" href="/semi/views/qna/qnaListView.jsp">QNA</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#"></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#"></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#"></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">로그인하기</a>
+  <li class="login">
+    <a class="nav-link" href="/semi/views/member/login.jsp">로그인하기</a>
   </li>
   <!-- <li class="nav-item">
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
