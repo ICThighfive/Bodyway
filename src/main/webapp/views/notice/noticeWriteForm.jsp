@@ -13,7 +13,7 @@
 <br>
 <!-- form 에서 입력값들과 파일을 함께 전송하려면 
 반드시 속성을 추가해야 함 : enctype="multipart/form-data" -->
-<form action="" method="post" enctype="multipart/form-data">
+<form action="/semi/ninsert" method="post" enctype="multipart/form-data">
 <table class="table table-bordered">
 <tr><th>제 목</th><td><input type="text" name="title" size="50"></td></tr>
 <tr><th>작성자</th><td><input type="text" name="writer" readonly 

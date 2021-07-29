@@ -58,7 +58,7 @@ public class DiaryInsertServlet extends HttpServlet {
 		int maxSize = 1024 * 1024 * 10;
 
 		// 3. 업로드되는 파일의 저장 폴더 지정
-		String savePath = request.getSession().getServletContext().getRealPath("/resources/notice_upfiles");
+		String savePath = request.getSession().getServletContext().getRealPath("/resources/diary_upfiles");
 
 		// 4. request 를 MultipartRequest 로 변환해야 함
 		// cos.jar 가 제공하는 클래스를 사용

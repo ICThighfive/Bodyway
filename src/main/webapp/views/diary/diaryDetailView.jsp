@@ -14,7 +14,7 @@ function moveUpdatePage(){
 }
 
 function requestDelete(){
-	location.href = "";
+	location.href = "/semi/ddelete?diaryno=<%= diary.getDiaryNo() %>&rfile=<%= diary.getDiaryRenameImage() %>";
 }
 </script>
 </head>
@@ -37,7 +37,7 @@ function requestDelete(){
 <th>첨부파일</th>
 	<td>
 		<% if(diary.getDiaryOriginalImage() != null) { %>
-			<a href="/first/nfdown?ofile=<%= diary.getDiaryOriginalImage() %>&rfile=<%= diary.getDiaryRenameImage() %>"><%= diary.getDiaryOriginalImage() %></a>
+			<%-- <a href="/first/nfdown?ofile=<%= diary.getDiaryOriginalImage() %>&rfile=<%= diary.getDiaryRenameImage() %>"><%= diary.getDiaryOriginalImage() %></a> --%>
 		<% } else { %>
 			&nbsp;
 		<% } %>

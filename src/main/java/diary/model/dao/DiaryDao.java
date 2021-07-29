@@ -11,18 +11,21 @@ import static common.JDBCTemp.*;
 
 public class DiaryDao {
 
-	public ArrayList<Diary> selectList(Connection conn) {
+	public ArrayList<Diary> selectList(Connection conn, int startRow, int endRow) {
 		ArrayList<Diary> list = new ArrayList<Diary>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
-		String query = "select * " + "from (select diary_no, user_id, diary_title, "
+		String query = "select * " + "from (select rownum rnum, diary_no, user_id, diary_title, "
 				+ "        diary_content, diary_date, diary_modify_date, user_weight, "
 				+ "        user_bmi, diary_open, diary_original_image, diary_rename_image "
-				+ "    from (select * from tb_diary " + "    order by diary_no)) ";
+				+ "    from (select * from tb_diary " + "    order by diary_no)) "
+				+ "where rnum >= ? and rnum <= ?";
 
 		try {
 			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 
 			rset = pstmt.executeQuery();
 
@@ -95,10 +98,8 @@ public class DiaryDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String query = "update tb_diary set " + "diary_title = ?, "
-				+ "diary_content = ?, diary_date = sysdate, " 
-				+ "diary_original_image = ?, diary_rename_image = ? "
-				+ "where diary_no = ?";
+		String query = "update tb_diary set " + "diary_title = ?, " + "diary_content = ?, diary_date = sysdate, "
+				+ "diary_original_image = ?, diary_rename_image = ? " + "where diary_no = ?";
 
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -120,28 +121,69 @@ public class DiaryDao {
 
 	public int insertDiary(Connection conn, Diary diary) {
 		int result = 0;
-	      PreparedStatement pstmt = null;
-	      
-	      String query = "insert into tb_diary "
-	      		+ "(diary_no, user_id, diary_title, diary_content)"
-	      		+ "values "
-	      		+ "(diary_no_seq.nextval, 'user01', ?, ?)";
-	      // user_id 임시
-	      try {
+		PreparedStatement pstmt = null;
+
+		String query = "insert into tb_diary " + "(diary_no, user_id, diary_title, diary_content)" + "values "
+				+ "(diary_no_seq.nextval, 'user01', ?, ?)";
+		// user_id 임시
+		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, diary.getDiaryTitle());
 			pstmt.setString(2, diary.getDiaryContent());
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-	      
-	      
-	      return result;
+
+		return result;
+	}
+
+	public int deleteDiary(Connection conn, int diaryNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+
+		String query = "delete from tb_diary where diary_no = ?";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, diaryNo);
+
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	public int getListCount(Connection conn) {
+		int listCount = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+
+		String query = "select count(*) from tb_diary";
+
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+
+			if (rset.next()) {
+				listCount = rset.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+
+		return listCount;
 	}
 
 }

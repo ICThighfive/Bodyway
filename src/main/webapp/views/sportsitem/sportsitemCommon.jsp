@@ -23,10 +23,10 @@ a{
 <body>
 <h2 align="left">운동용품</h2>
 <ul id="sportsitem">
-	<li><a href="sportsitemListView.jsp">전체</a></li>
-	<li><a href="sportsitemHealthListView.jsp">헬스기구</a></li>
-	<li><a href="sportsitemPropsListView.jsp">운동소품</a></li>
-	<li><a href="sportsitemAccessoryListView.jsp">악세사리</a></li>
+	<li><a href="/semi/silist.ad">전체</a></li>
+	<li><a href="/semi/sisublist.health?si_sub_category=헬스기구">헬스기구</a></li>
+	<li><a href="/semi/sisublist.props?si_sub_category=운동소품">운동소품</a></li>
+	<li><a href="/semi/sisublist.acce?si_sub_category=악세사리">악세사리</a></li>
 </ul>
 </body>
 </html>

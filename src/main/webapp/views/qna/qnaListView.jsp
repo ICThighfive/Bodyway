@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, qna.model.vo.Question, qna.model.vo.Answer" %>
+<%
+	ArrayList<Question> list = (ArrayList<Question>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,30 +24,27 @@
 	<th>작성자</th>
 	<th>첨부파일</th>
 	<th>날짜</th>
+	<th>조회수</th>
 </tr>
 
+<% for(Question q : list) { %>
 <tr>
-	<td>1</td>
-	<td><a href="/semi/views/qna/questionDetailView.jsp">123</a></td>
-	<td>123</td>
-	<td align="center">
-		
-	</td>
-	<td>1234</td>
-</tr>
-
-<tr>
-	<th>답변</th>
+	<th><%= q.getQnaNo() %></th>
 	<td>
-	▶
-	<a href="/semi/views/qna/answerDetailView.jsp">답변제목</a>
+	<a href="/semi/qdetail?qqno=<%= q.getQnaNo() %>"><%= q.getQqTitle() %></a>
 	</td>
-	<td>답변작성자</td>
-	<td>첨부파일
-		
+	<td><%= q.getUserId() %></td>
+	<td>
+		<% if(q.getQqOriginalImage() != null) { %>
+			◎
+		<% } else { %>
+			&nbsp;
+		<% } %>
 	</td>
-	<td>작성일</td>
+	<td><%= q.getQqDate() %></td>
+	<td><%= q.getQqReadCount() %></td>
 </tr>
+<% } %>
 </table>
 <br>
 <input type="button" value="메인으로" onclick="javascript:history.go(-1); return false;">

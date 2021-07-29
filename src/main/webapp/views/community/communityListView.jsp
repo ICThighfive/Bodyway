@@ -1,21 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<!-- 모임 전체 리스트 조회 페이지 -->
+<%@ page import="community.model.vo.Community, java.util.ArrayList"%>
+<%
+   ArrayList<Community> list = (ArrayList<Community>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Bodyway</title>
+
+<!-- 부트스트랩 // 이거 3줄 없으면 컨테이너 태그 안먹음 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style type="text/css">
-h1 a { 
+h1 a {
 	text-decoration: none;
 	color: #333333;
 	font: sans-serif;
 	font-weight: bold;
 }
-table.cmlist{ 
+
+.tb thead {
+	border: 1px;
+	font-weight: bolder;
+	color: #4D5B67;
+}
+
+<!--
+table.cmlisttb {
 	position: relative;
 	text-align: center;
 }
+
 table tr td a {
 	text-decoration: none;
 	color: #333333;
@@ -25,57 +48,32 @@ table tr td a {
 	width: 300;
 	height: 50;
 }
-
+-->
 </style>
 </head>
 <body>
-<%@ include file="../common/menubar.jsp" %>
-<hr>
-<center>
-<br>
-<h1><a href="communityMain.jsp">커뮤니티 👬</a></h1>
-<br>
-
-<!-- 테이블 안에 있는 <a>의 href와 <img>의src 속성은 추후 DB에서 샘플데이터 연결 후 자동으로 가져올수 있도록 수정하겠습니다. -->
-
-<table class="cmlist" cellspacing="10" cellpadding="10" align="center">
-	<tr class="imgtag">
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_1.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_2.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_3.jpg" width="300" height="180"></a></td>
-	</tr>
-	<tr>
-		<td><a href="communityDetailView.jsp">한강 조깅/런닝메이트 해요!!</a></td>
-		<td><a href="communityDetailView.jsp">릴렉스 릴렉스~ 함께해요 요가! :)</a></td>
-		<td><a href="communityDetailView.jsp">3대 500!! 나와라!! 도전!</a></td>
-	</tr>
-	<tr>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_4.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_5.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_6.jpg" width="300" height="180"></a></td>
-	</tr>
-	<tr>
-		<td><a href="communityDetailView.jsp">건강한 식단 공유 모임입니다~</a></td>
-		<td><a href="communityDetailView.jsp">나를 따르라~!! 등산 원정대</a></td>
-		<td><a href="communityDetailView.jsp">헬스/PT 정보 공유합니당:)</a></td>
-	</tr>
-	<tr>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_7.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_8.jpg" width="300" height="180"></a></td>
-		<td><a href="communityDetailView.jsp"><img src="../../resources/images/community_9.jpg" width="300" height="180"></a></td>
-	</tr>
-	<tr>
-		<td><a href="communityDetailView.jsp">키즈 축구교실</a></td>
-		<td><a href="communityDetailView.jsp">해안길따라 자전거여행</a></td>
-		<td><a href="communityDetailView.jsp">박태환 저리가라!</a></td>
-	</tr>
-</table>
-
-
-</center>
-<hr>
-<%@ include file="../common/footer.jsp" %>
-
-
+	<%@ include file="../common/menubar.jsp"%>
+	<hr>
+	<center>
+		<br>
+		<h1>
+			<a href="communityMain.jsp">커뮤니티 👬</a>
+		</h1>
+		<br>
+		<div class="container-fluid w-100">
+			<div class="row">
+				<% for(Community cm : list){ %>		<!-- 리스트 받아오는 for each문 작성 -->
+				<div class="col-lg-4">	<!-- img 1개 = 4/12 -->
+					<a href="/semi/cmdetail?=" class="thumbnail"> <!-- detail 서블릿 매핑한 이름 -->
+						<img src="/semi/resources/images/<%= cm.getcOriginalImage() %>" style="width: 100%"> <!-- 이미지 -->
+						<p style="font-size: x-large"><%= cm.getCommunityName() %></p> <!-- 모임 제목 -->
+					</a>
+				</div>
+				<% } %>
+			</div>
+		</div>
+	</center>
+	<hr>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

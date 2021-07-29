@@ -31,19 +31,19 @@ text-decoration : none;
     <a class="nav-link" href="/semi/views/sportswear/sportswearListView.jsp">스포츠 웨어</a>
   </li>
   <li class="nav-item3">
-    <a class="nav-link" href="/semi/views/sportsitem/sportsitemListView.jsp">운동 용품</a>
+    <a class="nav-link" href="/semi/silist">운동 용품</a>
   </li>
   <li class="nav-item4">
-    <a class="nav-link" href="/semi/views/sportsvideo/sportsvideoListView.jsp">운동 영상</a>
+    <a class="nav-link" href="/semi/svlist">운동 영상</a>
   </li>
   <li class="nav-item5">
-    <a class="nav-link" href="/semi/views/community/communityListView.jsp">커뮤니티</a>
+    <a class="nav-link" href="/semi/cmlist">커뮤니티</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/semi/views/notice/noticeListView.jsp">공지사항</a>
+    <a class="nav-link" href="/semi/nlist">공지사항</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/semi/views/qna/qnaListView.jsp">QNA</a>
+    <a class="nav-link" href="/semi/qlist">QNA</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#"></a>
@@ -63,7 +63,7 @@ text-decoration : none;
     <ul class="dropdown-menu">
    <!--   <li><a class="dropdown-item" href="#">회원정보수정</a></li> -->
       <li><a class="dropdown-item" href="#">마이페이지</a></li>
-      <li><a class="dropdown-item" href="#">운동일지</a></li>
+      <li><a class="dropdown-item" href="/semi/dlist">운동일지</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="javascript:location.href='/semi/logout'">로그아웃하기</a></li>
     </ul>

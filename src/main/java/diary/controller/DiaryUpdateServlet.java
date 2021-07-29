@@ -42,7 +42,7 @@ public class DiaryUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 관리자용 공지사항 수정 처리용 컨트롤러
+		// 운동일지 수정 처리용 컨트롤러
 
 		// 1. multipart 방식으로 인코딩되어서 전송왔는지 확인
 		// 아니면 에러 페이지를 내보냄
@@ -57,7 +57,7 @@ public class DiaryUpdateServlet extends HttpServlet {
 		int maxSize = 1024 * 1024 * 10;
 
 		// 3. 업로드되는 파일의 저장 폴더 지정
-		String savePath = request.getSession().getServletContext().getRealPath("/resources/notice_upfiles");
+		String savePath = request.getSession().getServletContext().getRealPath("/resources/diary_upfiles");
 
 		// 4. request 를 MultipartRequest 로 변환해야 함
 		// cos.jar 가 제공하는 클래스를 사용

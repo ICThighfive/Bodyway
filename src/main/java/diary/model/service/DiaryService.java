@@ -11,12 +11,10 @@ public class DiaryService {
 
 	private DiaryDao ddao = new DiaryDao();
 
-	public ArrayList<Diary> selectList() {
+	public ArrayList<Diary> selectList(int startRow, int endRow) {
 		Connection conn = getConnection();
-		ArrayList<Diary> list = ddao.selectList(conn);
-
+		ArrayList<Diary> list = ddao.selectList(conn, startRow, endRow);
 		close(conn);
-
 		return list;
 	}
 
@@ -38,10 +36,10 @@ public class DiaryService {
 		} else {
 			rollback(conn);
 		}
-		
+
 		close(conn);
 
-	    return result;
+		return result;
 	}
 
 	public int insertDiary(Diary diary) {
@@ -53,10 +51,32 @@ public class DiaryService {
 		} else {
 			rollback(conn);
 		}
-		
+
 		close(conn);
 
-	    return result;
+		return result;
+	}
+
+	public int deleteDiary(int diaryNo) {
+		Connection conn = getConnection();
+		int result = ddao.deleteDiary(conn, diaryNo);
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		close(conn);
+
+		return result;
+	}
+
+	public int getListCount() {
+		Connection conn = getConnection();
+		int listCount = ddao.getListCount(conn);
+		close(conn);
+		return listCount;
 	}
 
 }
