@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<script>
+function draRect(){
+	var myCanvas = document.getElementById("mycanvas");
+	var ctx = myCanvas.getContext("2d");
+	
+	ctx.fillRect(25, 25, 100, 100);
+	ctx.clearRect(45, 45, 60, 60);
+	ctx.strokeRect(50, 50, 50, 50);
+}
+
+function drawArc(){
+	var myCanvas = document.getElementById("myCanvas");
+	var ctx = myCanvas.getcontext("2d");
+	
+	ctx.geginPath();
+	ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+	
+	ctx.fill();
+	
+}
+</script>
+</head>
+<body>
+<center>
+<h1 align="center">회원 가입이 완료되었습니다!</h1>
+<br>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<br/>
+
+<button type = "button" onclick = "location.href = './Login.jsp'">로그인 페이지로 이동</button>
+
+</center>
+</body>
+</html>

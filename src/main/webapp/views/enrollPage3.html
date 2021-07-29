@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LoginPage</title>
+<body>
+<center>
+<h1 align="center">회원 가입</h1>
+<br>
+<tr><th width="120"> 성별 </th>
+	<td>
+		<input type="radio" name="gender" value="M"> 남자 &nbsp;
+		<input type="radio" name="gender" value="F"> 여자
+	</td></tr>
+	<br>
+<tr><th width="120">연령</th>
+
+<select name="age">
+                <option value="teenage">10대</option>
+                <option value="twenteen">20대</option>
+                <option value="thirty">30대</option>
+           		<option value="forty">40대</option>
+           		<option value="fifty">50대</option>
+        </select>
+     <br>
+<tr><th width="120"> 키 </th>
+	<input type="text" colspan="2" placeholder="":)">
+    </tr>
+    <br>
+
+<form action="http://localhost:8800/semi/views/member/enrollPage3.html" method="post" 
+              entype="multipart/form-data">
+<input type="file" name="profile">
+<input type="submit">
+
+</form>
+<br>
+<tr><th width="120"> 기존 프로필사진명</tr> </th>
+
+<br>
+
+<a href="./enrollPage4.html"> 가입하기 </a>
+</center>
+
+
+
+
+</body>
+</html>

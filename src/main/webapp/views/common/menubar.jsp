@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "user.model.vo.User"%>
     <!-- import 추가 예정 (로그인 확인 session 객체를 위함) -->
+    <%
+    String str =  null;
+    %>
+    <%
+    User loginUser = (User)session.getAttribute("loginUser");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 <meta charset="UTF-8">
 <title>menubar</title>
 <style type = "text/css">
@@ -46,13 +50,29 @@ text-decoration : none;
   </li>
   
    <!-- 비로그인의 경우는 로그인하기가 보이게, 로그인이 됐을 경우는 로그인 한 사람의 정보를 가져올 예정 -->
+   <%if(loginUser == null){ %>
   <li class="login">
-    <a class="nav-link" href="/semi/views/member/login.jsp">로그인하기</a>
+    <a class="nav-link" href="/semi/views/user/Login.jsp">로그인하기</a>
   </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>-->
+  
+  <!-- 로그인이 됐을 경우  -->
+  <%}else{ %>
+  
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true"><%=loginUser.getName() %>님 어서오세요^__^</a>
+    <ul class="dropdown-menu">
+   <!--   <li><a class="dropdown-item" href="#">회원정보수정</a></li> -->
+      <li><a class="dropdown-item" href="#">마이페이지</a></li>
+      <li><a class="dropdown-item" href="#">운동일지</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="javascript:location.href='/semi/logout'">로그아웃하기</a></li>
+    </ul>
+  </li>
+  <%} %>
 </ul>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class SportsVideoDao {
 			rset = stmt.executeQuery(query);
 			
 			while(rset.next()) {
-				SportsVideo sportsvideo = new SportsVideo();
+				SportsVideo sportsvideo = new SportsVideo();//½ºÆ÷Ã÷ºñµð¿À °´Ã¼ Ãß°¡
 				
 				sportsvideo.setSvBoardNo(rset.getInt("sv_board_no"));
 				sportsvideo.setProductId(rset.getString("product_id"));
